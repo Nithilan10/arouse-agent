@@ -1,10 +1,12 @@
 from langchain.agents import create_agent
 from dotenv import load_dotenv
+from agent_architecture.agents.models.planning.ProjectPlan import ProjectPlan
 
 load_dotenv()
 
 
 agent = create_agent(
     model = "claude-sonnet-4-6",
-    system_prompt = "You are the team lead of a software development team and your responsibility is to manage the team(hire, fire, promote), validate and push changes, and create/change subteams"
+    system_prompt = "You are the team lead of a software development team and your responsibility is to manage the team(hire, fire, promote), validate and push changes, and create/change subteams",
+    response_format = ProjectPlan
 )
